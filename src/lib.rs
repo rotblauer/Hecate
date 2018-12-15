@@ -558,9 +558,9 @@ fn style_list_public(conn: State<DbReadWrite>, mut auth: auth::Auth, auth_rules:
 fn style_list_user(conn: State<DbReadWrite>, mut auth: auth::Auth, auth_rules: State<auth::CustomAuth>, user: i64) -> Result<Json<serde_json::Value>, HecateError> {
     let conn = conn.get()?;
 
-    println!("USER: {}", &user);
-    println!("AUTH: {:?}", &auth);
-    println!("AUTH RULES: {:?}", auth_rules.allows_style_list(&mut auth, &conn));
+    eprintln!("USER: {}", &user);
+    eprintln!("AUTH: {:?}", &auth);
+    eprintln!("AUTH RULES: {:?}", auth_rules.allows_style_list(&mut auth, &conn));
 
     auth_rules.allows_style_list(&mut auth, &conn)?;
 

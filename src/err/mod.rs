@@ -82,7 +82,7 @@ impl <'r> Responder<'r> for HecateError {
         let status = rocket::http::Status::from_code(self.code).unwrap();
         let body = self.as_json().to_string();
 
-        println!("HecateError: {:?}", &body);
+        eprintln!("HecateError: {:?}", &body);
 
         Ok(Response::build()
             .status(status)
