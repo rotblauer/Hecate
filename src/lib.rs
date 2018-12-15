@@ -561,6 +561,7 @@ fn style_list_user(conn: State<DbReadWrite>, mut auth: auth::Auth, auth_rules: S
     println!("USER: {}", &user);
     println!("AUTH: {:?}", &auth);
     println!("AUTH RULES: {:?}", auth_rules.allows_style_list(&mut auth, &conn));
+
     auth_rules.allows_style_list(&mut auth, &conn)?;
 
     match auth.uid {
